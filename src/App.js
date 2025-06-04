@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import LandingPage from './LandingPage.jsx';
+import ScanPage from './ScanPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [showScanPage, setShowScanPage] = useState(false);
+
+  return showScanPage ? (
+    <ScanPage />
+  ) : (
+    <LandingPage onGetStarted={() => setShowScanPage(true)} />
   );
-}
+};
 
 export default App;
